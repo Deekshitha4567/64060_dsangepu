@@ -1,0 +1,118 @@
+---
+title: "FML ASSIGNMENT 1"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+date: "2024-02-04"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+Source of my Dataset:
+
+
+```{r}
+library(readr)
+HeartFailure_Prediction<-
+read.csv("C:/Users/deeks/Downloads/heart.csv")
+View(HeartFailure_Prediction)
+```
+
+#The descriptive statistics for the dataset:
+
+```{r}
+summary(HeartFailure_Prediction)
+```
+
+#The Qualitative Variables are:
+
+```{r}
+summary(HeartFailure_Prediction$Sex)
+```
+
+```{r}
+summary(HeartFailure_Prediction$ChestPainType)
+```
+```{r}
+summary(HeartFailure_Prediction$RestingECG)
+```
+
+```{r}
+summary(HeartFailure_Prediction$ExerciseAngina)
+```
+```{r}
+summary(HeartFailure_Prediction$ST_Slope)
+```
+
+#The Quantitative variables are"
+
+```{r}
+summary(HeartFailure_Prediction$Age)
+```
+
+```{r}
+summary(HeartFailure_Prediction$RestingBP)
+```
+```{r}
+summary(HeartFailure_Prediction$Cholesterol)
+```
+```{r}
+summary(HeartFailure_Prediction$FastingBS)
+```
+
+```{r}
+summary(HeartFailure_Prediction$MaxHR)
+```
+
+```{r}
+summary(HeartFailure_Prediction$Oldpeak)
+```
+
+```{r}
+summary(HeartFailure_Prediction$HeartDisease)
+```
+#MEAN OF CHOLESTROL
+
+```{r}
+mean(HeartFailure_Prediction$Cholesterol)
+```
+#MEDIAN OF CHOLESTROL
+
+```{r}
+median(HeartFailure_Prediction$Cholesterol)
+```
+#MODE OF CHOLESTROL
+
+```{r}
+mode<-function(x){
+  n<-table(HeartFailure_Prediction$Cholesterol)
+  which.max(n)
+}
+mode(HeartFailure_Prediction$Cholesterol)
+```
+
+#DESCRIPTIVE STATISTICS FOR A CATEGORIAL VARIABLE
+
+```{r}
+table(HeartFailure_Prediction$Sex)
+```
+#TRANSFORMATION OF HEART FAILURE PREDICTION OF DATASET
+
+```{r}
+transform(HeartFailure_Prediction$Oldpeak+ 1)
+```
+
+#CREATING A SCATTERPLOT FOR HEART FAILURE PREDICTION DATASET
+
+```{r}
+x=HeartFailure_Prediction$Age
+y=HeartFailure_Prediction$RestingBP
+plot(x,y,main = "AGE Vs RESTINGBP" ,xlab = "Age",ylab = "RestingsBP")
+```
+
+
